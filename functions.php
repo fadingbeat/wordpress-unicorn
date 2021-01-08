@@ -141,8 +141,8 @@ add_action( 'widgets_init', 'cornunion_widgets_init' );
  */
 function cornunion_scripts() {
 	wp_enqueue_style( 'cornunion-style', get_stylesheet_uri(), array(), _S_VERSION );
-	
-	wp_enqueue_style( 'cornunion-style-custom', get_template_directory_uri() . '/custom.css');
+
+	wp_enqueue_style( 'cornunion-style-custom', get_template_directory_uri() . '/custom.scss');
 
 	wp_style_add_data( 'cornunion-style', 'rtl', 'replace' );
 
