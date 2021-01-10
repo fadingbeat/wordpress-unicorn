@@ -147,6 +147,7 @@ function cornunion_scripts() {
 	wp_style_add_data( 'cornunion-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'cornunion-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'cornunion-loadmore', get_template_directory_uri() . '/js/loadmore.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -181,3 +182,20 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/* REST API request */
+function cornunion_send_request() {
+	$request = new WP_REST_Request( 'GET', '/wp/v2/posts' );
+	$response = rest_do_request( $request );
+ 
+	if ( $response->is_error() ) {
+		$error = $response->as_error();
+		$message = $response->get_error_message();
+		$error_data = $response->get_error_data();
+		$status = isset( $error_data['status'] ) ? $error_data['status'] : 500;
+		wp_die( printf( '<p>An error occurred: %s (%d)</p>', $message, $error_data ) );
+	}
+
+	$data = $response->get_data();
+	$headers = $response->get_headers();
+}
+add_action( 'parse_request', 'cornunion_send_request' );
