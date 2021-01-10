@@ -35,9 +35,9 @@
 			</div>
 			
 			<div class="social-icons">
-				<a href="#!"><img src="wp-content/uploads/2021/01/ic-facebook.svg" class="fb_icon"></img></a>
-				<a href="#!"><img src="wp-content/uploads/2021/01/ic-twitter.svg" class="fb_twitter"></img></a>
-				<a href="#!"><img src="wp-content/uploads/2021/01/ic-instagram.svg" class="fb_insta"></img></a>
+				<a href="#!"><img src="http://localhost/unicorn/wp-content/uploads/2021/01/ic-facebook.svg" class="fb_icon"></img></a>
+				<a href="#!"><img src="http://localhost/unicorn/wp-content/uploads/2021/01/ic-twitter.svg" class="fb_twitter"></img></a>
+				<a href="#!"><img src="http://localhost/unicorn/wp-content/uploads/2021/01/ic-instagram.svg" class="fb_insta"></img></a>
 			</div>
 			<div class="tagline">
 				<?php
