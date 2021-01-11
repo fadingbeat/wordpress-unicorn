@@ -141,12 +141,13 @@ add_action( 'widgets_init', 'cornunion_widgets_init' );
  */
 function cornunion_scripts() {
 	wp_enqueue_style( 'cornunion-style', get_stylesheet_uri(), array(), _S_VERSION );
-	
-	wp_enqueue_style( 'cornunion-style-custom', get_template_directory_uri() . '/custom.css');
+
+	wp_enqueue_style( 'cornunion-style-custom', get_template_directory_uri() . '/custom.scss');
 
 	wp_style_add_data( 'cornunion-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'cornunion-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'cornunion-loadmore', get_template_directory_uri() . '/js/loadmore.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -181,3 +182,26 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/* Display tags */
+function wpb_tag_cloud() { 
+	$tags = get_tags();
+	$args = array(
+			'smallest'                  => 10, 
+			'largest'                   => 22,
+			'unit'                      => 'px', 
+			'number'                    => 3,  
+			'format'                    => 'flat',
+			'separator'                 => " ",
+			'orderby'                   => 'count', 
+			'order'                     => 'ASC',
+			'echo'                      => false
+	); 
+	 
+	$tag_string = wp_generate_tag_cloud( $tags, $args );
+	 
+	return $tag_string; 
+	 
+	} 
+
+	add_shortcode('wpb_popular_tags', 'wpb_tag_cloud'); 
+	add_filter ('widget_text', 'do_shortcode'); 

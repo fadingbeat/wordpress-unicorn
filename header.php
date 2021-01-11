@@ -13,6 +13,8 @@
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
+	<?php wp_enqueue_script("jquery"); ?>
+	<?php wp_head(); ?>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
@@ -27,10 +29,13 @@
 
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
+		<div class="empty"></div>
 			<?php
 			the_custom_logo();
 			if ( is_front_page() && is_home() ) :
 				?>
+				
+				<div class="empty"></div>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 				<?php
 			else :
@@ -44,6 +49,9 @@
 				<p class="site-description"><?php echo $cornunion_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 			<?php endif; ?>
 		</div><!-- .site-branding -->
+		<div class="empty-cell">
+
+		</div>
 
 		<nav id="site-navigation" class="main-navigation">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">

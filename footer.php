@@ -13,20 +13,42 @@
 
 	<footer id="colophon" class="site-footer">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'cornunion' ) ); ?>">
+			<div class="footer-logo">
 				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'cornunion' ), 'WordPress' );
+				the_custom_logo();
 				?>
-			</a>
-			<span class="sep"> | </span>
+				<nav id="site-navigation" class="main-navigation">
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+				<div class="border-menu"></div>	
+				<div class="border-menu"></div>	
+				<div class="border-menu"></div>	
+			<?php //esc_html_e( 'Primary Menu', 'cornunion' ); ?></button>
+			<?php
+			wp_nav_menu(
+				array(
+					'theme_location' => 'menu-1',
+					'menu_id'        => 'primary-menu',
+				)
+			);
+			?>
+		</nav><!-- #site-navigation -->
+			</div>
+			
+			<div class="social-icons">
+				<a href="#!"><img src="http://localhost/unicorn/wp-content/uploads/2021/01/ic-facebook.svg" class="fb_icon"></img></a>
+				<a href="#!"><img src="http://localhost/unicorn/wp-content/uploads/2021/01/ic-twitter.svg" class="fb_twitter"></img></a>
+				<a href="#!"><img src="http://localhost/unicorn/wp-content/uploads/2021/01/ic-instagram.svg" class="fb_insta"></img></a>
+			</div>
+			<div class="tagline">
 				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'cornunion' ), 'cornunion', '<a href="http://underscores.me/">Underscores.me</a>' );
+				printf( esc_html__( '2019. All love and happines' ));
 				?>
+			</div>
+			
 		</div><!-- .site-info -->
+		
 	</footer><!-- #colophon -->
-</div><!-- #page -->
+<!-- </div>#page -->
 
 <?php wp_footer(); ?>
 
