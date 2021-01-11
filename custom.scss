@@ -6,6 +6,10 @@
 a {
   text-decoration: none;
 }
+.wp-block-column a, .wp-block-group a {
+  color: #000;
+}
+ 
 .tag-cloud-link {
   color: #000;
   border: 1px solid #EAEAEA;
@@ -203,6 +207,12 @@ a {
   word-break: break-word;
   width: 33rem;
 }
+.page-id-83 .wp-block-latest-posts__list.has-dates.wp-block-latest-posts {
+  margin: 0 21%;
+}
+.page-id-83 .wp-block-group__inner-container {
+  margin-bottom: 5rem;
+}
 
 /* Cover image text styling */
 #cover-title, .aligncenter.size-large.is-resized {
@@ -217,9 +227,10 @@ a {
 .page-id-83 .entry-content p {
   margin: 2% auto;
 }
-.wp-block-image figure {
+.wp-block-image .aligncenter.size-large .wp-image-22{
   width: 600px;
 }
+
 
 /* load more content */
 #load-more-div .ajax-post {
