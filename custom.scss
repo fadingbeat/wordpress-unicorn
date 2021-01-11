@@ -1,7 +1,17 @@
 /* Custom CSS */
 .site {
-  // width: 1200px;
   margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+}
+.tag-cloud-link {
+  color: #000;
+  border: 1px solid #EAEAEA;
+  border-radius: 10px;
+  padding: 3px;
+  background-color: #EAEAEA;
 }
 
 .site-header {
@@ -74,7 +84,6 @@
 
 /* Footer styles */
 .site-footer {
-  // width: 1200px;
   bottom: 1rem;
   border-bottom: 1px solid #C9C9C9;
 }
@@ -153,21 +162,14 @@
   word-break: break-word;
   padding: 0 10%;
 }
-
-// .wp-block-media-text .wp-block-media-text__content {
-//   padding: 0 1%;
-//   padding-right: 18rem;
-// }
 .wp-block-media-text .wp-block-media-text__content h1 {
   font-size: 4rem;
   color: #FFAEE4;
 }
-
 .wp-block-media-text__content .has-text-align-left.has-huge-font-size {
   color: #000;
   line-height: 4.6rem;
 }
-
 .page-id-17 .site-main {
   margin: 0 11.5%;
 }
@@ -177,7 +179,6 @@
   margin: 2% 25%;
 }
 .page-id-83 p {
-  // padding: 0 16%;
   margin: auto;
   width: 50%;
 }
@@ -190,9 +191,7 @@
 .entry-content h2 {
   color: #FFAEE4;
 }
-.page-id-83 .wp-block-group {
-  margin-bottom: 15rem;
-}
+
 .page-id-83 .wp-block-group__inner-container {
   margin: 0 17.5%;
 }
@@ -218,6 +217,21 @@
 .page-id-83 .entry-content p {
   margin: 2% auto;
 }
+.wp-block-image figure {
+  width: 600px;
+}
+
+/* load more content */
+#load-more-div .ajax-post {
+  width: calc(25% - .9375em);
+  margin: 0 1.25em 1.25em 0;
+  margin-right: 2%;
+}
+
+#load-more-div {
+    margin: 0 3%;
+}
+    
 
 /* Responsive design */
 @media screen and (min-width: 37.5em) {
@@ -225,13 +239,15 @@
     width: 100%;
   }
 }
-@media screen and (min-width: 1200px) {
-  .site-header {
-    // width: 50%;
+@media screen and (max-width: 599px) {
+  #load-more-div .ajax-post {
+    width: 90%;
+    margin: 0 1.25em 1.25em 0;
+    margin-right: 2%;
   }
-  // .page-id-83 .entry-content p {
-  //   font-size: 180%;
-  // }
+  #load-more-div {
+    margin: 0 4%;
+  }
 }
 @media screen and (max-width: 1200px) {
   .page-id-17 .site-main {
@@ -242,5 +258,8 @@
   }
   .page-id-83 p {
     width: unset;
+  }
+  .wp-block-group__inner-container h2 {
+    margin: unset;
   }
 }

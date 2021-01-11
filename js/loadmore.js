@@ -47,13 +47,10 @@ jQuery(function($) {
       });
     };
 
-    // Since our AJAX query is the same as the original query on the page (page 1), start with page 2
     var getPage = 2;
 
-    // Actually implement the functionality when the button is clicked
     loadMoreButton.on('click', function() {
       loadPosts(getPage);
-      // Increment the page, so on the next click we get the next page of results
       getPage++;
     });
   }

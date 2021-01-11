@@ -182,24 +182,6 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-/* REST API request */
-function cornunion_send_request() {
-	$request = new WP_REST_Request( 'GET', '/wp/v2/posts' );
-	$response = rest_do_request( $request );
- 
-	if ( $response->is_error() ) {
-		$error = $response->as_error();
-		$message = $response->get_error_message();
-		$error_data = $response->get_error_data();
-		$status = isset( $error_data['status'] ) ? $error_data['status'] : 500;
-		wp_die( printf( '<p>An error occurred: %s (%d)</p>', $message, $error_data ) );
-	}
-
-	$data = $response->get_data();
-	$headers = $response->get_headers();
-}
-add_action( 'parse_request', 'cornunion_send_request' );
-
 /* Display tags */
 function wpb_tag_cloud() { 
 	$tags = get_tags();
@@ -220,8 +202,6 @@ function wpb_tag_cloud() {
 	return $tag_string; 
 	 
 	} 
-	// Add a shortcode so that we can use it in widgets, posts, and pages
+
 	add_shortcode('wpb_popular_tags', 'wpb_tag_cloud'); 
-	 
-	// Enable shortcode execution in text widget
 	add_filter ('widget_text', 'do_shortcode'); 
